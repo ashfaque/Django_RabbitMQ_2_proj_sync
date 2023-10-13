@@ -49,4 +49,17 @@ class UserDetail(AbstractUser):
         db_table = 'user_detail'
 
 
+class ConflictingUserSyncLog(models.Model):
+    raw_message_body_json = models.TextField(null=True, editable=False)    # * Non-Editable in django forms or django admin.
+    comment = models.TextField(blank=True, null=True, editable=False)
+    exchange_name = models.TextField(null=True, editable=False)
+    message_id = models.TextField(editable=False)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True, editable=False)
+
+    def __str__(self):
+        # return f"Log - ID: {self.id}"
+        return str(self.id)
+
+    class Meta:
+        db_table = 'conflicting_user_sync_log'
 

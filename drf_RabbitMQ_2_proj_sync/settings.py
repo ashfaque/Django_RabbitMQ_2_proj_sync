@@ -334,3 +334,13 @@ REST_KNOX = {
 }
 '''
 
+RABBITMQ = {
+    'HOST': os.environ.get('RABBITMQ_HOST', '192.168.0.111'),
+    'USERNAME': os.environ.get('RABBITMQ_USER', 'drf_user'),
+    'PASSWORD': os.environ.get('RABBITMQ_PASSWORD', 'drf_user'),
+    'PORT': int(os.environ.get('RABBITMQ_PORT', '5672')),
+    'VIRTUAL_HOST': os.environ.get('RABBITMQ_VIRTUAL_HOST', 'drf_vhost'),
+
+    'USER_SYNC_EXCHANGE_NAME': os.environ.get('USER_SYNC_EXCHANGE_NAME', 'drf_exchange'),
+    'USER_SYNC_QUEUE_NAME': os.environ.get('USER_SYNC_QUEUE_NAME', 'drf_queue'),
+}
